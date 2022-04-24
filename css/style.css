@@ -1,0 +1,716 @@
+/*
+ * Login:   xkeprt03
+ *
+ * Ondřej Keprt
+ *
+ */
+
+
+:root{
+   --basicGray: #898989;
+   --lightGray: #bfbfbf;
+   --darkGray: #4d4d4d;
+   --nevyrazna:   #f7f7f7;
+   --vyrazna: black;
+   --vyraznaInverzni: white;
+   --decoration: steelblue;
+   --borderRadius: 5px;
+   --shadow: 10px;
+   --animationTime: .5s;
+   --small-fontsize: 14px;
+   --bigger-fontsize: 18px;
+
+   --headerBackgroundColor: #0d0d0d;
+   --greenSelection: #336600;
+
+}
+
+html{
+   scroll-behavior: smooth;
+}
+
+body{
+   margin: 0px;
+   padding: 0px;
+   min-width: 768px; /* aby se spravne zobrazovaly barvy pozadi, nestaci to dat jen na content*/
+}
+
+*{
+   box-sizing: border-box;
+}
+
+.content{
+   display: block;
+   font-family: PT SANS;
+   min-width: 768px;
+   max-width: 1200px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+a {
+   text-decoration: none;
+}
+
+h2{
+   font-weight: bold;
+   font-size: 32px;
+}
+
+h3{
+   font-size: 24px;
+}
+
+p{
+   line-height: 1.7em;
+}
+
+section{
+   padding-top: 60px;
+   padding-bottom: 80px;
+}
+
+.content > h2{
+   text-transform: uppercase;
+   text-align: center;
+   font-size: 40px;
+}
+
+
+
+/**********  HEADER  **********/
+
+#header{
+   background: url("../img//header.jpg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+   width: 100%;
+   min-height: 400px;
+   height: 100vh;
+   color: var(--lightGray);   
+}
+
+#header .content{ 
+   padding-left: 15px;
+   padding-right: 15px;
+   height: 100%;
+}
+
+.fas{
+   color: var(--decoration);
+}
+
+#header-menu > div {
+   padding-top: 10px;
+}
+
+#logo{
+   font-size: 25px;
+   font-family: Special Elite;
+   float: left;
+   color: var(--decoration);
+}
+
+#logo a{
+   color: var(--basicGray);   
+}
+
+#logo a:hover, #contacts a:hover{
+  color: white;
+}
+
+#logo a:visited:hover{
+   color: white;
+}
+
+#logo a:visited, #contacts a:visited{
+   color: var(--decoration);
+}
+
+#contacts{
+   float: right;
+}
+ 
+#contacts a{
+   color: var(--lightGray);
+}
+
+#contacts span{
+   margin-left: 10px;
+}
+
+#header-menu i{
+   margin-right: 10px;
+}
+
+#networks{
+   float: right;
+   clear: both;
+}
+
+#networks i::before{
+   display: inline-block;
+}
+
+#networks .fab{
+   color: var(--decoration);
+   font-size: 20px; 
+   padding-left: 0px;
+}
+
+#networks .fab:visited{
+   color: white;
+}
+
+#networks .fab:hover{
+   color: white;
+}
+
+#networks a{
+   display: inline-block;
+}
+
+#navigation{
+   clear: both;
+   float: left;
+}
+
+#navigation ul{
+   padding: 0px;
+   margin: 0px;
+}
+
+#navigation a{
+   color: var(--lightGray);
+   font-size: 20px;
+   letter-spacing: 0.05em;
+   padding: 5px 15px;
+   border: 1px solid transparent;
+   transition: var(--animationTime);
+   text-transform: uppercase;
+}
+
+#navigation a:hover{
+   border-color: white;
+}
+
+#navigation li{
+   display: inline-block;
+}
+
+#header-title{
+   position: absolute;
+   top: 50%;   /* 66% bylo moc*/
+}
+
+#header-title h1{
+   white-space: nowrap;
+   color: white;
+   font-size: 64px;
+   margin-left: 0px;
+   margin-bottom: 20px;
+   width: 100%;
+}
+
+#header *::selection{
+   background: var(--greenSelection);
+}
+
+#get-started{
+   margin-top: 70px;
+}
+
+#get-started a, #get-started a:visited{
+   font-size: var(--bigger-fontsize); 
+   padding: 20px;
+   color: var(--lightGray);
+   border: solid 2px var(--lightGray);
+   border-radius: 15px;
+   transition: var(--animationTime);
+}
+
+
+
+#get-started a:hover{
+   background-color: var(--decoration);
+   border-color: var(--decoration);
+   color: white;
+}
+
+
+/*********  SERVICES  *********/
+
+.services-card{
+   box-sizing: border-box;
+   width: 300px;
+   margin: 40px;
+   border: 1px solid transparent;
+   box-shadow: 0px 0px 20px var(--lightGray);
+   text-align: center;
+}
+
+.services-card:hover{
+   box-shadow: 0px 0px 20px var(--decoration);
+}
+
+/* rekl bych, ze by odstavec mel mit nejaky padding, 
+   na obrazku je vetsi mezera, ale kdyz jej pridam slova se 
+   preskladaji na jin radek, proto jej nedavam
+*/
+ #services .content .services-card p {
+   color: var(--lightGray);
+   font: var(--small-fontsize);
+   margin: 10px 2px;
+}
+
+#services .content div .services-column:nth-of-type(2n+1) .services-card{
+   margin-left: auto;
+   margin-right: 0px;
+}
+
+#services .content div .services-column:nth-of-type(2n) .services-card{
+   margin-left: right;
+   margin-right: auto;
+}
+
+.services-card div{
+   display: inline-block;
+   margin-top: 1em;
+   width: 50px;
+   height: 50px;
+   padding: 5px;
+   border: 1px solid var(--decoration);
+   border-radius: var(--borderRadius);
+}
+
+.services-card:hover div{
+   background-color: var(--decoration);
+}
+
+.services-card div img:first-child{
+   display: block;    
+}
+
+.services-card:hover div img:first-child{
+   display: none;    
+}
+
+.services-card div img:last-child{
+  display: none;    
+}
+
+.services-card:hover div img:last-child{
+   display: block;    
+}
+
+#services img{
+   width: 100%;
+   padding: 5px;
+}
+
+#services .content > div{ 
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+}
+
+#services .content h2{
+   flex: 0 0 100%;
+}
+#services .content p{
+   flex: 0 0 100%;
+   text-align: center;
+   color: var(--basicGray);
+   font-size: var(--bigger-fontsize);
+}
+
+#services .content .services-column{
+   flex: 0 0 50%;
+}
+
+/*********  ABOUT  *********/
+#about{
+   text-align: justify;
+   background-color: var(--nevyrazna);
+}
+
+#about p{
+   color: var(--basicGray);
+   font-size: var(--bigger-fontsize);
+}
+
+
+#about img{
+   width: 40%;
+   height: 40%;
+   margin-top: 40px;
+   margin-bottom: 40px; 
+}
+
+#about img:hover{
+   width: 50%;
+   height: 50%;
+   transition: var(--animationTime);
+}
+
+#about .content .about-item:nth-of-type(2n+1){
+   clear: right;
+}
+
+#about .content .about-item:nth-of-type(2n+1) img{
+   float: left;  
+   margin-right: 80px;
+}  
+
+#about .content .about-item:nth-of-type(2n){
+   clear: left;
+}
+
+#about .content .about-item:nth-of-type(2n) img{
+   float: right;    
+   margin-left: 80px; 
+}
+
+/*********  TEAM  *********/
+
+#team{
+   clear: both;
+   border-bottom: 1px dashed black;
+}
+
+#team .content{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   column-gap: 20px;
+}
+
+#team .content h2{
+   grid-column-start: 1;
+   grid-column-end: 5;
+   text-align: center;
+}
+
+#team img{
+   width: 100%;
+}
+
+#team .content .team-card:nth-of-type(1)::before{
+   content: "";
+   clear: both;
+}
+
+.team-card{
+   box-sizing: border-box;
+   text-align: center;
+   box-shadow: 0px 0px 10px var(--lightGray);
+}
+
+.team-card p{
+   color: var(--lightGray);
+   font-size: var(--small-fontsize);
+}
+
+.team-card:hover{
+   box-shadow: 0px 0px 20px var(--decoration);
+}
+
+.team-card:hover h3{
+   color: var(--decoration);
+}
+
+#team h4{
+   color: var(--basicGray);
+}
+
+/*********  STATS  *********/
+
+
+
+#stats{
+   clear: both;
+}
+
+#stats .content{
+   margin-top: 50px;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   justify-items: center;
+   gap: 20px;
+}
+
+.stats-card{
+   background-color: var(--darkGray);
+   color: white;
+   text-align: center;
+   max-width: 300px;
+   width: 100%;
+   border-radius: var(--borderRadius);
+}
+
+.stats-card:hover{
+   background-color: var(--decoration);
+}
+
+.stats-card i{
+   font-size: 32px;
+   background-color: white;
+   color: var(--decoration);
+   padding: 10px;
+   border-radius: 50%;
+   position: relative;
+   top: -25px;
+}
+
+.stats-card p{
+   color: var(--basicGray);
+}
+
+
+/*********  PRICE & SCHELUDE  *********/
+
+#price{
+   background-color: var(--nevyrazna);
+}
+
+#price .content h2{
+   text-transform: none;
+}
+
+
+#price table{
+   box-sizing: border-box;
+   width: 80%;
+   border-spacing: 0 20px;
+   color: var(--basicGray);
+   margin-left: auto;
+   margin-right: auto;
+}
+
+#price tr:hover{
+   background-color: white;
+   color: var(--decoration);
+}
+
+#price th{
+   padding: 20px;
+   text-align: left;
+   color: black;
+}
+
+#price td{
+   border-top: 1px dotted var(--decoration);  
+   border-bottom: 1px dotted var(--decoration); 
+   padding: 20px;
+}
+
+#price ul{
+   padding-left: 0px;
+}
+
+#price li{
+   list-style: inside;
+}
+
+#price li:first-child{
+   list-style: none;
+   font-weight: bold;
+}
+
+#price button{
+   padding: 20px;
+   background-color: transparent;
+   border-radius: var(--borderRadius);
+   border: 1px solid var(--decoration);
+}
+
+#price button:hover{
+   background-color: var(--decoration);
+   color: white;
+}
+
+/*********  CONTACT  *********/
+
+#refs{
+   border-bottom: 1px dashed black;
+}
+
+#refs img{
+   width: 60px;
+   border-radius: 50%;
+   float: left;
+   margin-top: 10px;
+   margin-right: 20px;
+}
+
+#refs .content{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   justify-content: center;
+}
+
+.refs-card{
+   display: inline-block;
+   max-width: 400px;   
+   width: 100%;
+   margin: 0px auto;
+   justify-content: center;
+}
+
+.refs-card blockquote{
+   background-color: var(--darkGray);
+   border-radius: var(--borderRadius);
+   padding: 20px 20px 20px 40px;
+   color: white;      
+   position: relative;   /*abych vytvoril vastni souradny system a vramci nej mohl pozicovat uvozovky a sipku u bubliny */
+}
+
+.refs-card blockquote span{
+   line-height: 1.7em;
+}
+
+.refs-card blockquote span::before{
+   content: "\"";
+   font-size: 100px;
+   font-style: italic;
+   position: absolute;
+   left: 0px;
+   top: 50px;
+   color: var(--decoration);
+}
+
+.refs-card blockquote span:after { /*sipka bubliny, je vytvorena z borderu  */
+   content: "";
+   position: absolute;
+   left: 32px;
+   bottom: -20px;   
+   border: 10px solid;
+   border-color: var(--darkGray) transparent transparent var(--darkGray);
+}
+
+.refs-card blockquote:hover{
+   background-color: var(--decoration);
+}
+
+.refs-card blockquote:hover span:after{
+   border-color: var(--decoration) transparent transparent var(--decoration); 
+}
+
+.refs-card blockquote:hover span:before{
+   color: white;
+}
+
+.refs-card h3{
+   color: var(--lightGray);
+   font-size: var(--small-fontsize);
+   margin-top: 30px;
+   float: left;
+}
+
+/*********  CONTACT  *********/
+
+#contact .content{
+   display: grid;
+   grid-template-columns: 1fr 1fr; 
+   grid-template-areas:
+   "header header"
+   "map form";
+   column-gap: 20px;
+}
+
+#contact .content h2{
+   grid-area: header;
+}
+
+#contact form{   
+   grid-area: form;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-areas:
+   "name email"
+   "subject subject"
+   "msg msg"
+   "submit submit";
+   gap: 20px;
+}
+
+#contact form input,#contact form textarea{
+   border: 1px solid var(--decoration);
+   border-radius: var(--borderRadius);
+   color: var(--decoration);
+}
+
+#contact form input:focus,#contact form textarea:focus{
+   border: 1px solid var(--greenSelection);
+   outline: none;
+}
+
+#contact form input:invalid{
+   color: red;
+}
+
+#contact input,#contact textarea{
+   padding: 10px;
+}
+
+#map {
+   height: 400px;
+   grid-area: map;
+}
+
+#contact-name{
+   grid-area: name;
+}   
+
+#contact-email{
+   grid-area: email;
+}
+
+#contact-subject{
+   grid-area: subject;
+}
+
+#contact-message{
+   grid-area: msg;
+   resize: none;
+   overflow-y: auto;
+}
+
+#contact form #contact-submit{
+   grid-area: submit;
+   color: white;
+   background-color: var(--decoration);
+   border-color: var(--decoration);
+   width: 50%;
+   position: relative;
+   left: 25%;
+}
+
+#contact form #contact-submit:hover{
+   background-color: var(--greenSelection);
+   border-color: var(--greenSelection);
+}
+
+/*********  FOOTER  *********/
+
+#footer{
+   margin-top: 60px;
+   padding: 40px 0px;
+   background-color: #0d0d0d;
+   color: var(--basicGray);
+}
+
+#footer *::selection{
+   background: var(--greenSelection);
+   color: white;
+}
+
+#footer a:visited{
+   color: var(--decoration);
+}
+
+#footer a{
+   float: right;
+   color: var(--decoration);
+}
